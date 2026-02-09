@@ -128,6 +128,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const modules = document.querySelectorAll('.module');
     const pageTitle = document.getElementById('page-title');
 
+    // Mobile Menu Toggle Logic
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const sidebar = document.getElementById('main-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (mobileMenuToggle && sidebar && overlay) {
+        mobileMenuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
     const titles = {
         'marketing-module': 'Marketing Campaign Generator',
         'sales-module': 'Sales Pitch Generator',
@@ -142,6 +161,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = btn.getAttribute('data-target');
             document.getElementById(targetId).classList.add('active');
             pageTitle.textContent = titles[targetId];
+
+            // Close sidebar when clicking a nav button on mobile
+            if (window.innerWidth <= 1024 && sidebar && overlay) {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     });
 
