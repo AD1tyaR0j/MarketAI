@@ -1,0 +1,76 @@
+/* Action Button Bar Responsive Styles */
+.action-button-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Add padding to output containers to prevent button overlap */
+#mkt-output,
+#sales-output,
+#lead-output {
+    padding-top: 60px !important;
+    min-height: 200px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .action-button-bar {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .action-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    #mkt-output,
+    #sales-output,
+    #lead-output {
+        padding-top: 55px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .action-button-bar {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        flex-direction: row;
+        width: 100%;
+        gap: 8px;
+        margin-bottom: 12px;
+        justify-content: center;
+    }
+
+    .action-btn {
+        flex: 1;
+        justify-content: center;
+        max-width: 150px;
+    }
+
+    #mkt-output,
+    #sales-output,
+    #lead-output {
+        padding-top: 20px !important;
+    }
+}
