@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketMind | AI Sales & Marketing Suite</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="form-enhancements.css">
+    <link rel="stylesheet" href="action-buttons.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="app-container">
+        <!-- Mobile Header (Visible only on mobile) -->
+        <header class="mobile-header">
+            <div class="mobile-brand">
+                <i class="fa-solid fa-brain"></i>
+                <span>MarketMind</span>
+            </div>
+            <button id="mobile-menu-toggle" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </header>
+
+        <aside class="sidebar" id="main-sidebar">
+            <div class="brand" id="logo-home">
+                <i class="fa-solid fa-brain"></i>
+                <div class="logo-container">
+                    <span style="color: var(--accent-blue);">M</span><span
+                        style="color: var(--accent-red);">a</span><span
+                        style="color: var(--accent-yellow);">r</span><span
+                        style="color: var(--accent-green);">k</span><span
+                        style="color: var(--accent-blue);">e</span><span style="color: var(--accent-red);">t</span><span
+                        style="color: var(--accent-purple);">Mind</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-btn active" data-target="marketing-module">
+                    <i class="fa-solid fa-bullhorn" style="color: var(--accent-blue);"></i> Marketing Campaign
+                </button>
+                <button class="nav-btn" data-target="sales-module">
+                    <i class="fa-solid fa-handshake" style="color: var(--accent-red);"></i> Sales Pitch
+                </button>
+                <button class="nav-btn" data-target="lead-module">
+                    <i class="fa-solid fa-filter" style="color: var(--accent-green);"></i> Lead Scoring
+                </button>
+            </nav>
+
+            <div class="user-profile" id="profile-menu-trigger">
+                <div class="avatar">U</div>
+                <div class="user-info">
+                    <span class="name">Demo User</span>
+                    <span class="role">Sales Director</span>
+                </div>
+                <i class="fa-solid fa-chevron-down profile-arrow"></i>
+            </div>
+
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown" id="profile-dropdown">
+                <div class="dropdown-item" onclick="resetForm('marketing-form')">
+                    <i class="fa-solid fa-rotate-left"></i> Reset Form
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-item logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="top-bar">
+                <h2 id="page-title">Marketing <span style="color: var(--accent-blue);">Campaign</span> Generator</h2>
+                <div class="status-indicator">
+                    <span class="dot"></span> System Ready
+                </div>
+            </header>
+
+            <!-- Module 1: Marketing Campaign -->
+            <section id="marketing-module" class="module active">
+                <div class="content-grid">
+                    <!-- Input Panel -->
+                    <div class="panel input-panel panel-blue">
+                        <h3><i class="fa-solid fa-pen-to-square" style="color: var(--accent-blue);"></i> Campaign <span
+                                style="color: var(--accent-blue);">Details</span></h3>
+                        <form id="marketing-form">
+                            <div class="form-group">
+                                <label>Product Name</label>
+                                <input type="text" id="mkt-product" placeholder="e.g. EcoBottle" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Product Description</label>
+                                <textarea id="mkt-desc" rows="3" placeholder="What does it do?" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Target Audience</label>
+                                <input type="text" id="mkt-audience" placeholder="e.g. Gen Z, Outdoor Enthusiasts"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label>Marketing Platform</label>
+                                <select id="mkt-platform">
+                                    <option value="LinkedIn">LinkedIn</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Email">Email Marketing</option>
+                                    <option value="Google Ads">Google Ads</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Strategy
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Output Panel -->
+                    <div class="panel output-panel">
+                        <h3><i class="fa-solid fa-robot" style="color: var(--accent-purple);"></i> <span
+                                style="color: var(--accent-purple);">AI</span> Insights</h3>
+                        <div id="mkt-output" class="output-content placeholder-text">
+                            Run the generator to see AI-powered marketing strategies here.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module 2: Sales Pitch -->
+            <section id="sales-module" class="module">
+                <div class="content-grid">
+                    <!-- Input Panel -->
+                    <div class="panel input-panel panel-red">
+                        <h3><i class="fa-solid fa-user-tie" style="color: var(--accent-red);"></i> Pitch <span
+                                style="color: var(--accent-red);">Details</span></h3>
+                        <form id="sales-form">
+                            <div class="form-group">
+                                <label>Product / Solution</label>
+                                <input type="text" id="sales-product" placeholder="e.g. CRM Software" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Customer Persona</label>
+                                <input type="text" id="sales-persona" placeholder="e.g. VP of Sales" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Industry</label>
+                                <input type="text" id="sales-industry" placeholder="e.g. SaaS, Finance" required>
+                            </div>
+                            <div class="row">
+                                <div class="form-group half">
+                                    <label>Company Size</label>
+                                    <select id="sales-size">
+                                        <option value="Startup">Startup (1-50)</option>
+                                        <option value="Mid-Market">Mid-Market (51-200)</option>
+                                        <option value="Enterprise">Enterprise (200+)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group half">
+                                    <label>Budget Range</label>
+                                    <select id="sales-budget">
+                                        <option value="Low">
+                                            < $5,000</option>
+                                        <option value="Medium">$5k - $20k</option>
+                                        <option value="High">$20k+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary"
+                                style="background: var(--accent-red); box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);">
+                                <i class="fa-solid fa-bolt"></i> Generate Pitch
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Output Panel -->
+                    <div class="panel output-panel">
+                        <h3><i class="fa-solid fa-file-lines" style="color: var(--accent-purple);"></i> Personalised
+                            <span style="color: var(--accent-purple);">AI</span> Pitch
+                        </h3>
+                        <div id="sales-output" class="output-content placeholder-text">
+                            Your varied sales pitch scripts will appear here.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module 3: Lead Scoring -->
+            <section id="lead-module" class="module">
+                <div class="content-grid">
+                    <!-- Input Panel -->
+                    <div class="panel input-panel panel-green">
+                        <h3><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--accent-green);"></i> Lead
+                            <span style="color: var(--accent-green);">Score</span>
+                        </h3>
+                        <form id="lead-form">
+                            <div class="form-group">
+                                <label>Product Name</label>
+                                <input type="text" id="lead-product" placeholder="e.g. Cloud ERP" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ideal Customer Profile (ICP)</label>
+                                <textarea id="lead-icp" rows="2" placeholder="Describe your perfect buyer..."
+                                    required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Product Value Proposition</label>
+                                <textarea id="lead-value" rows="2" placeholder="Key benefits..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Raw Lead Data / Interaction Note</label>
+                                <textarea id="lead-data" rows="4"
+                                    placeholder="Paste email query, call notes, or LinkedIn message here..."
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary"
+                                style="background: var(--accent-green); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);">
+                                <i class="fa-solid fa-calculator"></i> Score Lead
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Output Panel -->
+                    <div class="panel output-panel">
+                        <h3><i class="fa-solid fa-star" style="color: var(--accent-yellow);"></i> Quality <span
+                                style="color: var(--accent-yellow);">Evaluation</span></h3>
+                        <div id="lead-output" class="output-content placeholder-text">
+                            Lead score and analysis will be generated here.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

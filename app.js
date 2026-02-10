@@ -173,33 +173,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Logo Navigation ---
     const logo = document.getElementById('logo-home');
-    logo.addEventListener('click', () => {
-        // Reset to first module (Marketing)
-        navBtns.forEach(b => b.classList.remove('active'));
-        modules.forEach(m => m.classList.remove('active'));
-        navBtns[0].classList.add('active');
-        document.getElementById('marketing-module').classList.add('active');
-        pageTitle.textContent = titles['marketing-module'];
-    });
+    if (logo) {
+        logo.addEventListener('click', () => {
+            // Reset to first module (Marketing)
+            navBtns.forEach(b => b.classList.remove('active'));
+            modules.forEach(m => m.classList.remove('active'));
+            navBtns[0].classList.add('active');
+            document.getElementById('marketing-module').classList.add('active');
+            pageTitle.textContent = titles['marketing-module'];
+        });
+    }
 
     // --- Profile Dropdown Menu ---
     const profileTrigger = document.getElementById('profile-menu-trigger');
     const profileDropdown = document.getElementById('profile-dropdown');
 
-    profileTrigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        profileDropdown.classList.toggle('active');
-    });
+    if (profileTrigger && profileDropdown) {
+        profileTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('active');
+        });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', () => {
-        profileDropdown.classList.remove('active');
-    });
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            profileDropdown.classList.remove('active');
+        });
 
-    // Prevent dropdown from closing when clicking inside it
-    profileDropdown.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
+        // Prevent dropdown from closing when clicking inside it
+        profileDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
 
     // Logout functionality
     const logoutItem = document.querySelector('.dropdown-item.logout');
@@ -238,18 +242,19 @@ document.addEventListener('DOMContentLoaded', () => {
         copyBtn.className = 'action-btn copy-btn';
         copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
         copyBtn.style.cssText = `
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid rgba(59, 130, 246, 0.4);
-            color: #60a5fa;
+            background: #ffffff;
+            border: 1.5px solid var(--accent-blue);
+            color: var(--accent-blue);
             padding: 8px 16px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
             gap: 6px;
+            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.1);
         `;
 
         copyBtn.addEventListener('click', async () => {
@@ -265,15 +270,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Visual feedback
                 copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-                copyBtn.style.background = 'rgba(34, 197, 94, 0.2)';
-                copyBtn.style.borderColor = 'rgba(34, 197, 94, 0.4)';
-                copyBtn.style.color = '#4ade80';
+                copyBtn.style.background = 'var(--accent-green)';
+                copyBtn.style.borderColor = 'var(--accent-green)';
+                copyBtn.style.color = '#ffffff';
 
                 setTimeout(() => {
                     copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
-                    copyBtn.style.background = 'rgba(59, 130, 246, 0.2)';
-                    copyBtn.style.borderColor = 'rgba(59, 130, 246, 0.4)';
-                    copyBtn.style.color = '#60a5fa';
+                    copyBtn.style.background = '#ffffff';
+                    copyBtn.style.borderColor = 'var(--accent-blue)';
+                    copyBtn.style.color = 'var(--accent-blue)';
                 }, 2000);
             } catch (err) {
                 console.error('Failed to copy:', err);
@@ -285,18 +290,19 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfBtn.className = 'action-btn pdf-btn';
         pdfBtn.innerHTML = '<i class="fa-solid fa-file-pdf"></i> PDF';
         pdfBtn.style.cssText = `
-            background: rgba(239, 68, 68, 0.2);
-            border: 1px solid rgba(239, 68, 68, 0.4);
-            color: #f87171;
+            background: #ffffff;
+            border: 1.5px solid var(--accent-red);
+            color: var(--accent-red);
             padding: 8px 16px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
             gap: 6px;
+            box-shadow: 0 2px 8px rgba(234, 67, 53, 0.1);
         `;
 
         pdfBtn.addEventListener('click', () => {
@@ -332,15 +338,15 @@ Powered by MarketMind AI
 
             // Visual feedback
             pdfBtn.innerHTML = '<i class="fa-solid fa-check"></i> Done!';
-            pdfBtn.style.background = 'rgba(34, 197, 94, 0.2)';
-            pdfBtn.style.borderColor = 'rgba(34, 197, 94, 0.4)';
-            pdfBtn.style.color = '#4ade80';
+            pdfBtn.style.background = 'var(--accent-green)';
+            pdfBtn.style.borderColor = 'var(--accent-green)';
+            pdfBtn.style.color = '#ffffff';
 
             setTimeout(() => {
                 pdfBtn.innerHTML = '<i class="fa-solid fa-file-pdf"></i> PDF';
-                pdfBtn.style.background = 'rgba(239, 68, 68, 0.2)';
-                pdfBtn.style.borderColor = 'rgba(239, 68, 68, 0.4)';
-                pdfBtn.style.color = '#f87171';
+                pdfBtn.style.background = '#ffffff';
+                pdfBtn.style.borderColor = 'var(--accent-red)';
+                pdfBtn.style.color = 'var(--accent-red)';
             }, 2000);
         });
 
@@ -441,27 +447,39 @@ Powered by MarketMind AI
         saveToHistory(elementId, content);
     }
 
-    const API_BASE = "http://localhost:5001";
+    // --- API Configuration ---
+    // Robust detection: If on file protocol or wrong port, default to the Flask backend port
+    const API_BASE = (window.location.protocol === 'file:' || (window.location.port !== '5001' && window.location.hostname === '127.0.0.1'))
+        ? 'http://127.0.0.1:5001'
+        : window.location.origin;
+
+    console.log(`[MarketMind] API Base set to: ${API_BASE}`);
 
     async function callApi(endpoint, payload, outputId, buttonElement) {
         setLoading(outputId, true, buttonElement);
         try {
-            const response = await fetch(`${API_BASE}${endpoint}`, {
+            const apiUrl = `${API_BASE}${endpoint}`;
+            console.log(`[MarketMind] Calling: ${apiUrl}`);
+
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
 
             if (!response.ok) {
-                throw new Error("Server Error");
+                const errorText = await response.text();
+                console.error(`[MarketMind] Server Error (${response.status}):`, errorText);
+                throw new Error(`Server returned ${response.status}`);
             }
 
             const data = await response.json();
             displayResult(outputId, data.result);
 
         } catch (error) {
-            console.error("API Error:", error);
-            displayResult(outputId, "### ⚠️ System Update\n\n**Note:**\nOur AI service is currently experiencing high load. Please try again in momentarily. \n\n*(If running locally, ensure backend `app.py` is active)*");
+            console.error("[MarketMind] API Fetch Failure:", error);
+            const failureMsg = `### ⚠️ Connection Error\n\n**Note:**\nUnable to connect to the AI backend. \n\n**Troubleshooting:**\n1. Ensure your terminal is running \`python app.py\`\n2. Check if the backend is active at [http://127.0.0.1:5001](http://127.0.0.1:5001)\n3. Check browser console for detailed CORS or Network errors.`;
+            displayResult(outputId, failureMsg);
         } finally {
             // Re-enable button after completion
             setLoading(outputId, false, buttonElement);

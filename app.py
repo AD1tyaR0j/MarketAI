@@ -8,11 +8,11 @@ CORS(app)
 
 @app.route('/')
 def landing():
-    return send_from_directory(os.getcwd(), 'landing.html')
+    return send_from_directory(os.getcwd(), 'index.html')
 
 @app.route('/dashboard')
 def dashboard():
-    return send_from_directory(os.getcwd(), 'index.html')
+    return send_from_directory(os.getcwd(), 'dashboard.html')
 
 @app.route('/<path:path>')
 def serve_static(path):
@@ -80,5 +80,6 @@ def lead_scoring():
         )})
 
 if __name__ == '__main__':
-    # Use 0.0.0.0 to make it accessible if needed, strict local otherwise
-    app.run(debug=True, port=5001)
+    # Use PORT from environment or default to 5001
+    port = int(os.environ.get("PORT", 5001))
+    app.run(debug=True, host='0.0.0.0', port=port)
