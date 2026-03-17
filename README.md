@@ -2,7 +2,6 @@
 
 ![MarketMind](https://img.shields.io/badge/Status-Production-brightgreen)
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 
 **MarketMind** is a production-ready AI SaaS platform that transforms sales and marketing workflows with enterprise-grade generative AI. Generate professional campaigns, sales pitches, and lead scoring insights in seconds.
 
