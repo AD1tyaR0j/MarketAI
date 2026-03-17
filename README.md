@@ -195,12 +195,6 @@ gunicorn -w 4 -b 0.0.0.0:5001 app:app
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please follow these steps:
@@ -214,9 +208,9 @@ Contributions are welcome! Please follow these steps:
 
 ## 📧 Contact
 
-**Project Maintainer:** Your Name  
-**Email:** your.email@example.com  
-**Live Demo:** [https://marketmind.example.com](https://marketmind.example.com)
+**Project Maintainer:** Aditya Raj  
+**Email:** adrj281205@gmail.com  
+**Live Demo:** [[https://marketmind.example.com](https://marketmind.example.com)](https://mega.nz/file/qVFRRSZI#iB_yGjCbcnUMqh3AB3E99bqkOnhZxoT0FUlzOvIeWbQ)
 
 ---
 
