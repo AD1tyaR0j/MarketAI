@@ -210,7 +210,7 @@ Contributions are welcome! Please follow these steps:
 
 **Project Maintainer:** Aditya Raj  
 **Email:** adrj281205@gmail.com  
-**Live Demo:** [[https://marketmind.example.com](https://marketmind.example.com)](https://mega.nz/file/qVFRRSZI#iB_yGjCbcnUMqh3AB3E99bqkOnhZxoT0FUlzOvIeWbQ)
+**Live Demo:** (https://mega.nz/file/qVFRRSZI#iB_yGjCbcnUMqh3AB3E99bqkOnhZxoT0FUlzOvIeWbQ)
 
 ---
 
